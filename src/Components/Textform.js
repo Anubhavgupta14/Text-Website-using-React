@@ -12,6 +12,10 @@ export default function Textform(Prop) {
       let a = text.toLowerCase();
       setText(a);
   }
+  const handelcleclick = ()=>{
+    let a = "";
+    setText(a);
+}
     const handleonchange=(event)=>{
         //console.log("ok");
         setText(event.target.value);
@@ -26,6 +30,7 @@ export default function Textform(Prop) {
     </div>
     <button className='btn btn-primary mx-2' onClick={handelupclick}>UpperCase</button>
     <button className='btn btn-primary mx-2' onClick={handellowclick}>LowerCase</button>
+    <button className='btn btn-primary mx-2' onClick={handelcleclick}>Clear</button>
     <div className='container my-3'>
       <h1>Your Text Summary</h1>
       <p>{text.split(" ").length} words and {text.length} Character Counts</p>

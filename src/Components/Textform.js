@@ -16,7 +16,7 @@ export default function Textform(Prop) {
         //console.log("ok");
         setText(event.target.value);
     }
-    const [text, setText] = useState('Enter the string');
+    const [text, setText] = useState('');
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Textform(Prop) {
     <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handleonchange}></textarea>
     </div>
     <button className='btn btn-primary mx-2' onClick={handelupclick}>UpperCase</button>
-    <button className='btn btn-primary' onClick={handellowclick}>LowerCase</button>
+    <button className='btn btn-primary mx-2' onClick={handellowclick}>LowerCase</button>
     <div className='container my-3'>
       <h1>Your Text Summary</h1>
       <p>{text.split(" ").length} words and {text.length} Character Counts</p>

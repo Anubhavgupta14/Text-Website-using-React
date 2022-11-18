@@ -6,19 +6,23 @@ export default function Textform(Prop) {
         //console.log("Clicked");
         let a = text.toUpperCase();
         setText(a);
+        Prop.showAlert("Converted to UpperCase","success")
     }
     const handellowclick = ()=>{
       //console.log("Clicked");
       let a = text.toLowerCase();
       setText(a);
+      Prop.showAlert("Converted to LowerCase","success")
   }
   const handelcleclick = ()=>{
     let a = "";
     setText(a);
+    Prop.showAlert("Clear","success")
 }
 const handelextraspace = ()=>{
   let a = text.split(/[ ]+/);
   setText(a.join(" "));
+  Prop.showAlert("Reduced Extra Spaces","success")
 }
     const handleonchange=(event)=>{
         //console.log("ok");

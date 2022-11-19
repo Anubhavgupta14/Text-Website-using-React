@@ -5,8 +5,8 @@ import Textform from './Components/Textform';
 import About from './Components/About';
 import { useState } from 'react';
 import Alert from './Components/Alert';
-
-let flag = 0
+import image from './images/img.png';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 function App() {
   const [State, SetState] = useState("Enable")
   const [mode, setMode] = useState('light');
@@ -48,14 +48,17 @@ function App() {
   }
   return (
     <>
-    <Navbar title="Home" about="About" State={State} mode={mode} toggleswitch={toggleswitch} changegreen={changegreen} changered={changered} changeyellow={changeyellow}/>
+    <BrowserRouter>
+    <Navbar Link={Link} title="Home" about="About" State={State} mode={mode} toggleswitch={toggleswitch} changegreen={changegreen} changered={changered} changeyellow={changeyellow} image={image}/>
     <Alert alert={alert}/>
-    <div className='container my-3'>
-    <Textform showAlert={showAlert} mode={mode} heading="Enter the Text here."/>
-    {/* <About/> */}
-    </div>
+    <Routes>
+    <Route path='/' element={<div className='container my-3'><Textform showAlert={showAlert} mode={mode} heading="Enter the Text here."/></div>}/>
+    <Route path='/about' element={<About/>}/>
+    </Routes>
+    </BrowserRouter>
     </>
   );
 }
+
 
 export default App;

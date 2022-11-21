@@ -1,15 +1,12 @@
-//import React from 'react'
 import React, {useState} from 'react'
 
 export default function Textform(Prop) {
     const handelupclick = ()=>{
-        //console.log("Clicked");
         let a = text.toUpperCase();
         setText(a);
         Prop.showAlert("Converted to UpperCase","success")
     }
     const handellowclick = ()=>{
-      //console.log("Clicked");
       let a = text.toLowerCase();
       setText(a);
       Prop.showAlert("Converted to LowerCase","success")
@@ -25,7 +22,6 @@ const handelextraspace = ()=>{
   Prop.showAlert("Reduced Extra Spaces","success")
 }
     const handleonchange=(event)=>{
-        //console.log("ok");
         setText(event.target.value);
     }
     const [text, setText] = useState('');
@@ -36,13 +32,13 @@ const handelextraspace = ()=>{
     <label htmlFor="exampleFormControlTextarea1" className="form-label">{Prop.heading}</label>
     <textarea className="form-control" id="exampleFormControlTextarea1" style={{backgroundColor: Prop.mode==='dark'?'grey':'white', color: Prop.mode==='dark'?'white':'black'}} rows="8" value={text} onChange={handleonchange}></textarea>
     </div>
-    <button className='btn btn-primary mx-2' onClick={handelupclick}>UpperCase</button>
-    <button className='btn btn-primary mx-2' onClick={handellowclick}>LowerCase</button>
-    <button className='btn btn-primary mx-2' onClick={handelcleclick}>Clear</button>
-    <button className='btn btn-primary mx-2' onClick={handelextraspace}>Remove Extra Space</button>
+    <button className='btn btn-primary mx-2 my-2' onClick={handelupclick}>UpperCase</button>
+    <button className='btn btn-primary mx-2 my-2' onClick={handellowclick}>LowerCase</button>
+    <button className='btn btn-primary mx-2 my-2' onClick={handelcleclick}>Clear</button>
+    <button className='btn btn-primary mx-2 my-2' onClick={handelextraspace}>Remove Extra Space</button>
     <div className='container my-3'>
       <h1>Your Text Summary</h1>
-      <p>{text.split(" ").length} words and {text.length} Character Counts</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} Character Counts</p>
     </div>
     </>
   )

@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom'
 export default function Navbar(props) {
   return (
     <>
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
   <div className="container-fluid">
     <img src={props.image} className="mx-2"/>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
@@ -17,7 +20,7 @@ export default function Navbar(props) {
         </li>
       </ul>
       <div className="dropdown mx-4">
-  <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button className="btn btn-primary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Colored Background
   </button>
   <ul className="dropdown-menu">
@@ -26,7 +29,7 @@ export default function Navbar(props) {
     <li><a className="dropdown-item" onClick={props.changeyellow} href="#">Yellow</a></li>
   </ul>
 </div>
-      <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+      <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} my-2`}>
       <input className="form-check-input" onClick={props.toggleswitch} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
       <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.State} Dark Mode</label>
 </div>

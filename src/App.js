@@ -1,16 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './Components/Navbar';
 import Textform from './Components/Textform';
 import About from './Components/About';
 import { useState } from 'react';
 import Alert from './Components/Alert';
-import image from './images/img.png';
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 function App() {
   const [State, SetState] = useState("Enable")
   const [mode, setMode] = useState('light');
-  const [textmode, setTextMode] = useState('dark');
+  // const [textmode, setTextMode] = useState('dark');
   const [alert, SetAlert] = useState(null)
   const showAlert = (message, type)=>{
       SetAlert({
@@ -49,7 +48,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <Navbar Link={Link} title="Home" about="About" State={State} mode={mode} toggleswitch={toggleswitch} changegreen={changegreen} changered={changered} changeyellow={changeyellow} image={image}/>
+    <Navbar Link={Link} title="Home" about="About" State={State} mode={mode} toggleswitch={toggleswitch} changegreen={changegreen} changered={changered} changeyellow={changeyellow}/>
     <Alert alert={alert}/>
     <Routes>
     <Route path='/' element={<div className='container my-3'><Textform showAlert={showAlert} mode={mode} heading="Enter the Text here."/></div>}/>
